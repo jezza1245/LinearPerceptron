@@ -15,6 +15,9 @@ import weka.core.Instance;
 import weka.core.Instances;
 
 public class LinearPerceptron implements Classifier, CapabilitiesHandler {
+
+    double w[];
+
     @Override
     public void buildClassifier(Instances instances) throws Exception {
         /*
@@ -40,6 +43,35 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
         iterations to perform.
         */
 
+        w = new double[instances.numAttributes()]; // w (weights), array of weights for each attribute
+        for(int i=0; i< w.length; i++){
+            w[i] = -1;//(int)(Math.random()*10);
+        }
+        double n = 0.01; // n (learning rate) = 1
+        double y; // predicted output y
+        double t; // actual output
+        int max_iterations = 10;
+        int num_iterations = 1;
+
+        do{
+            for(Instance instance: instances){
+                y = classifyInstance(instance);
+                t= instance.classValue();
+                for(int i=0; i<instances.numAttributes(); i++){
+                    w[i] = w[i] +  0.5*n*(t - y)*instance.value(i); //TODO Ignore class value, do not include in weights
+                }
+                System.out.println("   "+WekaTools.accuracy(this, instances)*100);
+                //num_iterations++; // increment num_iterations
+            }
+            num_iterations++; // increment num_iterations
+            System.out.println(num_iterations + " -> " + WekaTools.accuracy(this, instances)*100);
+        }while(Stopping(num_iterations, max_iterations) == false);
+
+    }
+
+
+    private boolean Stopping(int num_iterations, int max_iterations){
+        return true ? (num_iterations > max_iterations) : false;
     }
 
     @Override
@@ -48,7 +80,11 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
         The method classifyInstance should applies the model to the new instance then applies
         a sensible decision rule to the resulting linear prediction.
         */
-        return 0;
+        double prediction_real = 0;
+        for(int i = 0; i < w.length; i++){
+            prediction_real = prediction_real + (w[i] * instance.value(i));
+        }
+        return prediction_real >= 0 ? 1.0 : -1.0;
     }
 
     @Override
@@ -72,7 +108,19 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
     }
 
 
+    public static void main(String[] args) {
+        Instances testData = WekaTools.loadClassificationData("src\\test_data.arff");
+        testData.setClassIndex(2);
+        LinearPerceptron lp = new LinearPerceptron();
+        try{
+            lp.buildClassifier(testData);
+            //System.out.println(testData);
 
+            //System.out.println(WekaTools.accuracy(lp, testData));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
 
 
