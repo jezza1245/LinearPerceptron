@@ -33,12 +33,10 @@ public class WekaTools {
         split[0] = new Instances(all, 0, splitAt);
         split[1] = new Instances(all, splitAt, totalInstances-splitAt);
 
-
         return split;
     }
 
     public static double[] classDistributionsAcrossInstances(Instances instances) throws weka.core.UnassignedClassException{
-
 
         try{
 
