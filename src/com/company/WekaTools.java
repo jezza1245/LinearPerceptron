@@ -1,9 +1,12 @@
 package com.company;
 
 import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
 import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Standardize;
 
 import java.io.FileReader;
 import java.util.Random;
@@ -22,6 +25,22 @@ public class WekaTools {
         return data;
     }
 
+    public static double crossValError(Classifier classifier, Instances instances) throws Exception{
+        // cross-validation error (10 fold)
+        Evaluation crossValidate = new Evaluation(instances);
+        crossValidate.crossValidateModel(classifier, instances, instances.numInstances()/2, new java.util.Random(1));
+        System.out.println("Cross validation error: " + crossValidate.errorRate());
+        return crossValidate.errorRate();
+    }
+
+    public static Instances standardize(Instances instances) throws Exception {
+        Standardize standardize = new Standardize();
+        standardize.setInputFormat(instances);
+
+        //Standardise to zero mean and unit standard deviation
+        return Filter.useFilter(instances, standardize);
+    }
+
     public static Instances[] splitData(Instances all, double proportion){
 
         Instances split[] = new Instances[2];
@@ -33,12 +52,10 @@ public class WekaTools {
         split[0] = new Instances(all, 0, splitAt);
         split[1] = new Instances(all, splitAt, totalInstances-splitAt);
 
-
         return split;
     }
 
     public static double[] classDistributionsAcrossInstances(Instances instances) throws weka.core.UnassignedClassException{
-
 
         try{
 
