@@ -12,6 +12,8 @@ import weka.core.Capabilities;
 import weka.core.CapabilitiesHandler;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Standardize;
 
 import java.text.DecimalFormat;
 
@@ -21,48 +23,24 @@ public class EnhancedLinearPerceptron implements Classifier, CapabilitiesHandler
     DecimalFormat df = new DecimalFormat("#.00");
     private double w[];
 
-    // Additional Functionality
+    // Additional Functionality flags for enhanced version
     private boolean standardisedAttributes = true;
     private boolean online = true;
     private boolean modelSelection = false;
 
-    public void setStandardisedAttributes(boolean standardisedAttributes) {
-        this.standardisedAttributes = standardisedAttributes;
-    }
-
+    public void setStandardisedAttributes(boolean standardize) { this.standardisedAttributes = standardize; }
     public void setOnline(boolean online) {
         this.online = online;
     }
-
-    public void setModelSelection(boolean modelSelection){
-        this.modelSelection = modelSelection;
-    }
+    public void setModelSelection(boolean modelSelection) { this.modelSelection = modelSelection; }
 
     private boolean selectModel(Instances instances) throws Exception{
-        int folds = 4;
-
-        // online
-        double online_acc = 0;
         EnhancedLinearPerceptron ehp = new EnhancedLinearPerceptron();
-        for(int i = 0; i<folds; i++){
-            Instances train = instances.trainCV(folds, i);
-            ehp.buildClassifier(train);
-            Instances test = instances.testCV(folds, i);
-            // Test accuracy with online
-            WekaTools.accuracy(ehp,test);
-            System.out.println("HERE");
-        }
+        double cv_error_online = WekaTools.crossValError(ehp,instances);
+        ehp.setOnline(false);
+        double cv_error_offline = WekaTools.crossValError(ehp,instances);
 
-        // offline
-        double offline_acc = 0;
-        for(int i = 0; i<folds; i++){
-            Instances train = instances.trainCV(folds, i);
-            Instances test = instances.testCV(folds, i);
-            // Test accuracy with offline
-            System.out.println("HERE");
-        }
-
-        return online_acc > offline_acc;
+        return cv_error_online <= cv_error_offline;
     }
 
     private void trainPerceptron(Instances instances, boolean online) throws Exception{
@@ -105,7 +83,7 @@ public class EnhancedLinearPerceptron implements Classifier, CapabilitiesHandler
                 if(debug) System.out.println();
 
                 // If offline and just looked at last datapoint, update all weights
-                if(online && instanceIndex == instances.numInstances()-1 ){
+                if(!online && instanceIndex == instances.numInstances()-1 ){
                     // For every attribute/weight
                     for (int i = 0; i < instances.numAttributes(); i++) {
                         // Update weight with delta
@@ -120,9 +98,11 @@ public class EnhancedLinearPerceptron implements Classifier, CapabilitiesHandler
 
     @Override
     public void buildClassifier(Instances instances) throws Exception {
+        if(this.standardisedAttributes){
+            instances = WekaTools.standardize(instances);
+        }
         boolean online = this.selectModel(instances);
         this.trainPerceptron(instances, this.online);
-
     }
 
 
@@ -167,6 +147,7 @@ public class EnhancedLinearPerceptron implements Classifier, CapabilitiesHandler
         Instances testData = WekaTools.loadClassificationData("src\\test_data.arff");
         testData.setClassIndex(2);
         EnhancedLinearPerceptron lp = new EnhancedLinearPerceptron();
+        lp.setStandardisedAttributes(true);
         try{
             lp.setModelSelection(true);
             lp.buildClassifier(testData);

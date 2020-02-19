@@ -65,7 +65,7 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
                 y = classifyInstance(instance); // Classify the instance
                 y = y<0 ? -1 : 1; // Apply Logistic function to map y to -1 (if negative) or 1 (if y >= 0)
 
-                t= instance.classValue(); // Get actual class value
+                t = instance.classValue(); // Get actual class value
 
                 if(debug) System.out.print(num_iterations+"("+num_iterations%instances.numInstances()+")    y="+y+" t="+t);
                 // If incorrect classification was made
