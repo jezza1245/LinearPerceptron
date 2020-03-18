@@ -18,14 +18,18 @@ import java.text.DecimalFormat;
 
 public class LinearPerceptron implements Classifier, CapabilitiesHandler {
 
-    private boolean debug = true;
-    private DecimalFormat df = new DecimalFormat("#.00");
-    private int maxIterations = 20;
-    double weights[];
+    protected boolean debug = true;
+    protected DecimalFormat df = new DecimalFormat("#.00");
+    protected int maxIterations = 1000;
+    protected double weights[];
+    protected double learningRate = 1;
+
+
+    public void setMaxIterations(int maxIterations) { this.maxIterations = maxIterations; }
+    public void setLearningRate(double learningRate) { this.learningRate = learningRate; }
 
     private void trainPerceptron(Instances instances) throws Exception{
 
-        double n = 1; // n (learning rate) = 1
         double y; // predicted output y
         double t; // actual output
 
@@ -44,16 +48,17 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
             y = y<0 ? -1 : 1; // Apply Logistic function to map y to -1 (if negative) or 1 (if y >= 0)
 
             t = instance.classValue(); // Get actual class value
-
+            if(t==0) t=-1; //If class given is 0, set to -1 to work with perceptron logic
             if(debug) System.out.print(numIterations+"("+index+")    y="+y+" t="+t);
 
             // If incorrect classification was made
             if(y!=t) {
+
                 if(debug) System.out.print("  Updating weights... "+ df.format(weights[0]) + "," + df.format(weights[1]));
 
                 // Update weights across all attributes
                 for (int i = 0; i < instances.numAttributes(); i++) {
-                    weights[i] = weights[i] + 0.5 * n * (t - y) * instance.value(i); // Could ignore class value, but has no effect on classification
+                    weights[i] = weights[i] + 0.5 * learningRate * (t - y) * instance.value(i); // Could ignore class value, but has no effect on classification
                 }
                 iterationsSinceUpdate = 0;
 
@@ -65,13 +70,13 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
 
             if(debug) System.out.println();
 
-            revolutionWithoutpdate = iterationsSinceUpdate >= (instances.numInstances()-1); // Set flag if a full revolution has been made
+            revolutionWithoutpdate = iterationsSinceUpdate >= (totalInstances-1); // Set flag if a full revolution has been made
             atIterationLimit = numIterations >= maxIterations; // Set flag if at iteration limit
 
         }while(!revolutionWithoutpdate && !atIterationLimit); //Stopping function
 
-        if(revolutionWithoutpdate) System.out.println("Iterated through all instances without update.");
-        if(atIterationLimit) System.out.println("Iteration limit reached");
+        if(revolutionWithoutpdate && debug) System.out.println("Iterated through all instances without update.");
+        if(atIterationLimit && debug) System.out.println("Iteration limit reached");
 
     }
 
@@ -101,7 +106,13 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
 
     @Override
     public double[] distributionForInstance(Instance instance) throws Exception { // TODO
-        return new double[0];
+
+        double[] distributions = new double[2];
+        double classifiedAs = classifyInstance(instance);
+        if(classifiedAs == -1) classifiedAs = 0;
+        distributions[(int)classifiedAs] = 1.0;
+
+        return distributions;
     }
 
     @Override
@@ -118,15 +129,27 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
         return result;
     }
 
+    private void printClassDistributions(Instances instances) throws Exception {
+        for(Instance i: instances){
+            System.out.print(i.classValue()+ "   -> ");
+            for(double d: distributionForInstance(i)){
+                System.out.print(d+",");
+            }
+            System.out.println();
+        }
+    }
+
 
     public static void main(String[] args) {
-        Instances testData = WekaTools.loadClassificationData("src\\test_data.arff");
+        Instances testData = WekaTools.loadClassificationData("src\\test_data1.arff");
         testData.setClassIndex(2);
         LinearPerceptron lp = new LinearPerceptron();
         try{
-            lp.debug = true;
+            lp.debug = false;
+
             lp.buildClassifier(testData);
             System.out.println(WekaTools.accuracy(lp, testData));
+
         }catch (Exception e){
             e.printStackTrace();
         }

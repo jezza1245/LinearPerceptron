@@ -26,10 +26,11 @@ public class WekaTools {
     }
 
     public static double crossValError(Classifier classifier, Instances instances) throws Exception{
-        // cross-validation error (10 fold)
+
         Evaluation crossValidate = new Evaluation(instances);
-        crossValidate.crossValidateModel(classifier, instances, instances.numInstances()/2, new java.util.Random(1));
-        System.out.println("Cross validation error: " + crossValidate.errorRate());
+        int numFolds = instances.numInstances();
+        crossValidate.crossValidateModel(classifier, instances, numFolds, new java.util.Random(1));
+
         return crossValidate.errorRate();
     }
 
@@ -55,25 +56,6 @@ public class WekaTools {
         return split;
     }
 
-    public static double[] classDistributionsAcrossInstances(Instances instances) throws weka.core.UnassignedClassException{
-
-        try{
-
-            double distributions[] = new double[instances.numClasses()];
-
-            for(Instance instance: instances){
-                double cls = instance.classValue();
-                distributions[(int)cls]++;
-            }
-
-            return distributions;
-        }catch (weka.core.UnassignedClassException e){
-            throw e;
-        }
-
-    }
-
-
     public static double accuracy(Classifier classifier, Instances test) {
         int totalInstances = test.numInstances();
         int numCorrect = 0;
@@ -82,7 +64,10 @@ public class WekaTools {
         for (Instance instance : test) {
             try {
                 double predicted = classifier.classifyInstance(instance);
+                if(predicted==-1) predicted = 0;
                 double actual = instance.value(classAttribute);
+                if(actual==-1) actual = 0;
+
                 if (predicted == actual) {
                     numCorrect++;
                 }
