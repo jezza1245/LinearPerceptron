@@ -20,7 +20,7 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
 
     protected boolean debug = true;
     protected DecimalFormat df = new DecimalFormat("#.00");
-    protected int maxIterations = 1000;
+    protected int maxIterations = 1000000;
     protected double weights[];
     protected double learningRate = 1;
 
@@ -37,7 +37,7 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
         int totalInstances= instances.numInstances();
         int iterationsSinceUpdate = 0;
 
-        boolean revolutionWithoutpdate;
+        boolean revolutionWithoutUpdate;
         boolean atIterationLimit;
 
         do{
@@ -70,12 +70,12 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
 
             if(debug) System.out.println();
 
-            revolutionWithoutpdate = iterationsSinceUpdate >= (totalInstances-1); // Set flag if a full revolution has been made
+            revolutionWithoutUpdate = iterationsSinceUpdate >= (totalInstances-1); // Set flag if a full revolution has been made
             atIterationLimit = numIterations >= maxIterations; // Set flag if at iteration limit
 
-        }while(!revolutionWithoutpdate && !atIterationLimit); //Stopping function
+        }while(!revolutionWithoutUpdate && !atIterationLimit); //Stopping function
 
-        if(revolutionWithoutpdate && debug) System.out.println("Iterated through all instances without update.");
+        if(revolutionWithoutUpdate && debug) System.out.println("Iterated through all instances without update.");
         if(atIterationLimit && debug) System.out.println("Iteration limit reached");
 
     }
@@ -141,18 +141,37 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
 
 
     public static void main(String[] args) {
-        Instances testData = WekaTools.loadClassificationData("src\\test_data1.arff");
-        testData.setClassIndex(2);
-        LinearPerceptron lp = new LinearPerceptron();
+//        Instances testData = WekaTools.loadClassificationData("resources\\test_data.arff");
+//        testData.setClassIndex(2);
+//        try{
+//            lp.debug = false;
+//
+//            lp.buildClassifier(testData);
+//            System.out.println(WekaTools.accuracy(lp, testData));
+//
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+
         try{
+
+            Instances blood[] = WekaTools.getDataSetSplit("blood");
+            Instances train = blood[0];
+            Instances test = blood[1];
+
+            train.setClassIndex(train.numAttributes()-1);
+            test.setClassIndex(test.numAttributes()-1);
+
+            LinearPerceptron lp = new LinearPerceptron();
             lp.debug = false;
+            lp.buildClassifier(train);
 
-            lp.buildClassifier(testData);
-            System.out.println(WekaTools.accuracy(lp, testData));
+            System.out.println(WekaTools.accuracy(lp,test));
 
-        }catch (Exception e){
+        }catch(Exception e){
             e.printStackTrace();
         }
+
     }
 
 

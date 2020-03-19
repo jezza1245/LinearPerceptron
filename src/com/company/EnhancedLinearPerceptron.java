@@ -43,7 +43,7 @@ public class EnhancedLinearPerceptron extends LinearPerceptron implements Serial
         return cv_error_online <= cv_error_offline;
     }
 
-    private void trainPerceptron(Instances instances, boolean online) throws Exception{
+    private void trainPerceptron(Instances instances) throws Exception{
 
         double y; // predicted output y
         double t; // actual output
@@ -53,11 +53,12 @@ public class EnhancedLinearPerceptron extends LinearPerceptron implements Serial
         int iterationsSinceUpdate = 0;
 
 
-        boolean revolutionWithoutpdate = false;
+        boolean revolutionWithoutUpdate = false;
         boolean atIterationLimit = false;
 
+        double weights_deltas[] = new double[instances.numAttributes()];
+
         do{
-            double weights_deltas[] = new double[instances.numAttributes()];
 
             int instanceIndex = numIterations%totalInstances;
             Instance instance = instances.get(instanceIndex);
@@ -66,6 +67,7 @@ public class EnhancedLinearPerceptron extends LinearPerceptron implements Serial
             y = y<0 ? -1 : 1; // Apply Logistic function to map y to -1 (if negative) or 1 (if y >= 0)
 
             t = instance.classValue(); // Get actual class value
+            if(t==0) t=-1; //If class given is 0, set to -1 to work with perceptron logic
 
             // If incorrect classification was made
             if(y!=t) {
@@ -77,15 +79,17 @@ public class EnhancedLinearPerceptron extends LinearPerceptron implements Serial
                     if(online) weights[i] = weights[i] + weights_deltas[i];
                 }
 
-                if(online) iterationsSinceUpdate = 0;
+                iterationsSinceUpdate = 0;
             }
 
             // If offline and just looked at last datapoint, update all weights
             if(!online && (instanceIndex == totalInstances-1) ){
 
+                // no corrections made
                 if(weights_deltas.equals(new double[instances.numAttributes()])){
                     break;
-                }else {
+                }
+                else {
 
                     // For every attribute/weight
                     for (int i = 0; i < instances.numAttributes(); i++) {
@@ -95,17 +99,16 @@ public class EnhancedLinearPerceptron extends LinearPerceptron implements Serial
 
                     weights_deltas = new double[instances.numAttributes()];
                 }
-            }else if(online){
-                revolutionWithoutpdate = iterationsSinceUpdate >= (totalInstances-1); // Set flag if a full revolution has been made
             }
-            System.out.println();
 
             numIterations++; // Increase iteration count
-
             atIterationLimit = numIterations >= maxIterations; // Set flag if at iteration limit
+            revolutionWithoutUpdate = (online && ( iterationsSinceUpdate >= (totalInstances-1) ) ); // Set flag if a full revolution has been made
 
-        }while(!revolutionWithoutpdate && !atIterationLimit); //Stopping function
 
+        }while(!revolutionWithoutUpdate && !atIterationLimit); //Stopping function
+
+        if(revolutionWithoutUpdate && debug) System.out.println("Iterated through all instances without update.");
         if(atIterationLimit && debug) System.out.println("Iteration limit reached");
     }
 
@@ -119,21 +122,42 @@ public class EnhancedLinearPerceptron extends LinearPerceptron implements Serial
 
         if(this.standardisedAttributes){ instances = WekaTools.standardize(instances); } //Standardize attributes
         if(this.modelSelection) { online = this.selectModel(instances); }
-        this.trainPerceptron(instances, online);
+        this.trainPerceptron(instances);
     }
 
 
     public static void main(String[] args) {
-        Instances testData = WekaTools.loadClassificationData("src\\test_data.arff");
-        testData.setClassIndex(2);
-        EnhancedLinearPerceptron lp = new EnhancedLinearPerceptron();
-        try{
-            lp.setModelSelection(false);
-            lp.setStandardisedAttributes(false);
-            lp.online = false;
-            lp.buildClassifier(testData);
+//        Instances testData = WekaTools.loadClassificationData("src\\test_data.arff");
+//        testData.setClassIndex(2);
+//        EnhancedLinearPerceptron lp = new EnhancedLinearPerceptron();
+//        try{
+//            lp.setModelSelection(false);
+//            lp.setStandardisedAttributes(false);
+//            lp.online = false;
+//            lp.buildClassifier(testData);
+//
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
 
-        }catch (Exception e){
+        try{
+
+            Instances blood[] = WekaTools.getDataSetSplit("blood");
+            Instances train = blood[0];
+            Instances test = blood[1];
+
+            train.setClassIndex(train.numAttributes()-1);
+            test.setClassIndex(test.numAttributes()-1);
+
+            EnhancedLinearPerceptron classifier = new EnhancedLinearPerceptron();
+            classifier.online = false;
+            classifier.standardisedAttributes = false;
+            classifier.modelSelection = false;
+            classifier.buildClassifier(train);
+
+            System.out.println(WekaTools.accuracy(classifier,test));
+
+        }catch(Exception e){
             e.printStackTrace();
         }
     }
