@@ -56,7 +56,41 @@ public class WekaTools {
 
     }
 
-    public class datasetIterator implements Iterator{
+    public splitDatasetIterator getSplitDatasetIterator(){
+        return new splitDatasetIterator();
+    }
+
+    private class splitDatasetIterator implements Iterator{
+
+        File datasets[];
+        int index = 0;
+
+        public splitDatasetIterator(){
+            datasets = dataCollection.listFiles();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index < (datasets.length);
+        }
+
+        @Override
+        public Object next() {
+            File dataset = datasets[index++];
+            if(!dataset.isDirectory()) dataset = datasets[index++];
+            Instances split[] = new Instances[2];
+            split[0] = loadClassificationData(dataset.listFiles((dir, name) -> name.endsWith("TRAIN.arff"))[0].getPath());
+            split[1] = loadClassificationData(dataset.listFiles((dir, name) -> name.endsWith("TEST.arff"))[0].getPath());
+            return split;
+        }
+
+    }
+
+    public datasetIterator getDatasetIterator(){
+        return new datasetIterator();
+    }
+
+    private class datasetIterator implements Iterator{
 
         File datasets[];
         int index = 0;
@@ -67,48 +101,42 @@ public class WekaTools {
 
         @Override
         public boolean hasNext() {
-            return index < (datasets.length - 1);
+            return index < (datasets.length);
         }
 
         @Override
         public Object next() {
-            return null;
+            File dataset = datasets[index++];
+            if(!dataset.isDirectory()) dataset = datasets[index++];
+            Instances data = loadClassificationData(dataset.listFiles((dir, name) -> !name.endsWith("TRAIN.arff") && !name.endsWith("TEST.arff"))[0].getPath());
+            return data;
         }
 
-        private Object nextDataset() {
-            return datasets[index++];
-        }
-
-        public File getNextDataset(){
-            File dataset = (File) nextDataset();
-            File wholeData = dataset.listFiles((dir, name) -> !name.endsWith("TRAIN.arff") && name.endsWith("TEST.arff"))[0];
-            return wholeData;
-        }
-
-        public File[] getNextDatasetSplit(){
-            File dataset = (File) nextDataset();
-            File split[] = new File[2];
-            split[0] = dataset.listFiles((dir, name) -> name.endsWith("TRAIN.arff"))[0];
-            split[1] = dataset.listFiles((dir, name) -> name.endsWith("TEST.arff"))[0];
-            return split;
-        }
     }
 
-    public static double crossValError(Classifier classifier, Instances instances) throws Exception{
+    public static double[] evaluationMetrics(Classifier classifier, Instances instances, int folds) throws Exception{
+
+        double metrics[] = new double[6];
 
         Evaluation crossValidate = new Evaluation(instances);
-        int numFolds = instances.numInstances();
-        crossValidate.crossValidateModel(classifier, instances, numFolds, new java.util.Random(1));
+        crossValidate.crossValidateModel(classifier, instances, folds, new java.util.Random(1));
 
-        return crossValidate.errorRate();
+        metrics[0] = crossValidate.correct() / crossValidate.numInstances(); // accuracy
+        //metrics[1] = crossValidate.errorRate(); // CV Error Rate
+        metrics[1] = crossValidate.areaUnderROC(0); // AUROC
+        //metrics[3] = crossValidate.areaUnderROC(instances.classIndex()); //NLL
+        //metrics[4] = crossValidate.areaUnderROC(instances.classIndex()); // Sensitivity
+        //metrics[5] = crossValidate.areaUnderROC(instances.classIndex()); // Specificity
+
+        return metrics;
     }
 
-    public static Instances standardize(Instances instances) throws Exception {
-        Standardize standardize = new Standardize();
-        standardize.setInputFormat(instances);
+    public static double crossValError(Classifier classifier, Instances instances, int folds) throws Exception{
 
-        //Standardise to zero mean and unit standard deviation
-        return Filter.useFilter(instances, standardize);
+        Evaluation crossValidate = new Evaluation(instances);
+        crossValidate.crossValidateModel(classifier, instances, folds, new java.util.Random(1));
+
+        return crossValidate.errorRate();
     }
 
     public static Instances[] splitData(Instances all, double proportion){
@@ -152,8 +180,23 @@ public class WekaTools {
     }
 
     public static void main(String[] args) {
+        WekaTools wk = new WekaTools();
+        Iterator dsit = wk.getDatasetIterator();
+        while(dsit.hasNext()){
+            Instances ds = (Instances)dsit.next();
+            ds.setClassIndex(ds.numAttributes() - 1);
+            System.out.print(ds.relationName() + "  -> ");
+            int class0 = 0, class1 = 0;
+            for(Instance i : ds){
+                if(i.classValue() == 0.0){
+                    class0++;
+                }else{
+                    class1++;
+                }
+            }
+            System.out.print(class0 + "  " + class1 + "\n\n");
 
+        }
     }
-
 
 }

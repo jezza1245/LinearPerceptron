@@ -14,21 +14,28 @@ import weka.core.CapabilitiesHandler;
 import weka.core.Instance;
 import weka.core.Instances;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.util.Iterator;
 
-public class LinearPerceptron implements Classifier, CapabilitiesHandler {
+public class LinearPerceptron implements Classifier, CapabilitiesHandler, Serializable {
 
-    protected boolean debug = true;
-    protected DecimalFormat df = new DecimalFormat("#.00");
-    protected int maxIterations = 1000000;
+    static final long serialVersionUID = 41L;
+    protected boolean debug = false;
+    protected int maxIterations = 10000;
     protected double weights[];
     protected double learningRate = 1;
+    protected boolean randomizeStartingCondition = false;
 
 
     public void setMaxIterations(int maxIterations) { this.maxIterations = maxIterations; }
     public void setLearningRate(double learningRate) { this.learningRate = learningRate; }
+    public void setRandomStartingCondition(boolean startContition) { this.randomizeStartingCondition = startContition; }
 
     private void trainPerceptron(Instances instances) throws Exception{
+
+        DecimalFormat df = new DecimalFormat("#.00");
+
 
         double y; // predicted output y
         double t; // actual output
@@ -84,8 +91,15 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
     public void buildClassifier(Instances instances) throws Exception {
         weights = new double[instances.numAttributes()]; // weights (weights), array of weights for each attribute
 
-        for(int i=0; i< weights.length; i++){
-            weights[i] = 1; //(int)(Math.random()*10);
+        if(randomizeStartingCondition){
+            for(int i=0; i< weights.length; i++){
+                weights[i] = (int)(Math.random()*10);
+            }
+        }
+        else {
+            for (int i = 0; i < weights.length; i++) {
+                weights[i] = 1; //(int)(Math.random()*10);
+            }
         }
 
         this.trainPerceptron(instances);
@@ -141,32 +155,75 @@ public class LinearPerceptron implements Classifier, CapabilitiesHandler {
 
 
     public static void main(String[] args) {
-//        Instances testData = WekaTools.loadClassificationData("resources\\test_data.arff");
-//        testData.setClassIndex(2);
-//        try{
-//            lp.debug = false;
+//         DecimalFormat df = new DecimalFormat("#.00");
+////        Instances testData = WekaTools.loadClassificationData("resources\\test_data.arff");
+////        testData.setClassIndex(2);
+////        try{
+////            lp.debug = false;
+////
+////            lp.buildClassifier(testData);
+////            System.out.println(WekaTools.accuracy(lp, testData));
+////
+////        }catch (Exception e){
+////            e.printStackTrace();
+////        }
 //
-//            lp.buildClassifier(testData);
-//            System.out.println(WekaTools.accuracy(lp, testData));
+       try{
 //
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
+//            ////// Iterate with train/test splits
+////            Iterator splitDatasetIterator = new WekaTools().getSplitDatasetIterator();
+////            while(splitDatasetIterator.hasNext()){
+////
+////                Instances traintest[] = (Instances[])splitDatasetIterator.next();
+////                Instances train = traintest[0];
+////
+////                train.setClassIndex(train.numAttributes()-1);
+////                Instances test = traintest[1];
+////                test.setClassIndex(test.numAttributes() -1);
+////
+////                System.out.println(train.relationName());
+////
+////                LinearPerceptron lp = new LinearPerceptron();
+////                lp.buildClassifier(train);
+////                System.out.println("  -> "+WekaTools.accuracy(lp,test));
+////
+////            }
+//
+//            // iterate with whole dataset and use CV
+//            Iterator datasetIterator = new WekaTools().getDatasetIterator();
+//            while(datasetIterator.hasNext()){
+//
+//                Instances data = (Instances)datasetIterator.next();
+//                data.setClassIndex(data.numAttributes()-1);
+//
+//                System.out.printf("%30s",data.relationName());
+//
+//                LinearPerceptron lp = new LinearPerceptron();
+//                lp.buildClassifier(data);
+//                double stats[] = WekaTools.evaluationMetrics(lp,data,10);
+//                System.out.print(" -> ");
+//                for(double stat: stats){
+//                    System.out.printf("%5s",df.format(stat));
+//                }
+//                System.out.println();
+//
+//            }
 
-        try{
 
-            Instances blood[] = WekaTools.getDataSetSplit("blood");
-            Instances train = blood[0];
-            Instances test = blood[1];
-
-            train.setClassIndex(train.numAttributes()-1);
-            test.setClassIndex(test.numAttributes()-1);
+//            Instances blood[] = WekaTools.getDataSetSplit("blood");
+//            Instances train = blood[0];
+//            Instances test = blood[1];
+//
+//            train.setClassIndex(train.numAttributes()-1);
+//            test.setClassIndex(test.numAttributes()-1);
 
             LinearPerceptron lp = new LinearPerceptron();
-            lp.debug = false;
-            lp.buildClassifier(train);
+            lp.debug = true;
+            Instances test_data = WekaTools.loadClassificationData("resources\\test_data.arff");
+            test_data.setClassIndex(2);
+            lp.buildClassifier(test_data);
 
-            System.out.println(WekaTools.accuracy(lp,test));
+            //System.out.println(WekaTools.accuracy(lp,test));
 
         }catch(Exception e){
             e.printStackTrace();

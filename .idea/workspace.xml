@@ -2,17 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b5ba053-939b-4def-a6a2-a546f48fd9c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/LinearPerceptron.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LinearPerceptron.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/EnhancedLinearPerceptron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/EnhancedLinearPerceptron.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/LinearPerceptron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/LinearPerceptron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/LinearPerceptronEnsemble.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/LinearPerceptronEnsemble.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/WekaTools$datasetIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/WekaTools$datasetIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/WekaTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinearPerceptron/com/company/WekaTools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/test_data.arff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/test_data1.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LinearPerceptron/weka.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/SummaryInfo.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/breast-tissue/breast-tissue.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/breast-tissue/breast-tissue_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/breast-tissue/breast-tissue_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/cardiotocography-10clases/cardiotocography-10clases.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/cardiotocography-10clases/cardiotocography-10clases_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/cardiotocography-10clases/cardiotocography-10clases_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/conn-bench-vowel-deterding/conn-bench-vowel-deterding.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/conn-bench-vowel-deterding/conn-bench-vowel-deterding_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/conn-bench-vowel-deterding/conn-bench-vowel-deterding_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/ecoli/ecoli.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/ecoli/ecoli_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/ecoli/ecoli_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/glass/glass.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/glass/glass_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/glass/glass_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/image-segmentation/image-segmentation.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/image-segmentation/image-segmentation_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/image-segmentation/image-segmentation_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/iris/iris.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/iris/iris_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/iris/iris_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/libras/libras.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/libras/libras_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/libras/libras_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/oocytes_trisopterus_states_5b/oocytes_trisopterus_states_5b.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/oocytes_trisopterus_states_5b/oocytes_trisopterus_states_5b_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/oocytes_trisopterus_states_5b/oocytes_trisopterus_states_5b_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/optical/optical.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/optical/optical_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/optical/optical_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/page-blocks/page-blocks.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/page-blocks/page-blocks_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/page-blocks/page-blocks_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/post-operative/post-operative.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/post-operative/post-operative_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/post-operative/post-operative_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/seeds/seeds.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/seeds/seeds_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/seeds/seeds_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/statlog-landsat/statlog-landsat.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/statlog-landsat/statlog-landsat_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/statlog-landsat/statlog-landsat_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/statlog-vehicle/statlog-vehicle.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/statlog-vehicle/statlog-vehicle_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/statlog-vehicle/statlog-vehicle_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/steel-plates/steel-plates.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/steel-plates/steel-plates_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/steel-plates/steel-plates_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/synthetic-control/synthetic-control.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/synthetic-control/synthetic-control_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/synthetic-control/synthetic-control_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/vertebral-column-3clases/vertebral-column-3clases.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/vertebral-column-3clases/vertebral-column-3clases_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/vertebral-column-3clases/vertebral-column-3clases_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/wall-following/wall-following.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/wall-following/wall-following_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/wall-following/wall-following_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/waveform-noise/waveform-noise.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/waveform-noise/waveform-noise_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/waveform-noise/waveform-noise_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/wine-quality-white/wine-quality-white.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/wine-quality-white/wine-quality-white_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/wine-quality-white/wine-quality-white_TRAIN.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/yeast/yeast.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/yeast/yeast_TEST.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UCIContinuous/yeast/yeast_TRAIN.arff" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/LinearPerceptron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LinearPerceptron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/LinearPerceptronEnsemble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LinearPerceptronEnsemble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/WekaTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/WekaTools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_data.arff" beforeDir="false" afterPath="$PROJECT_DIR$/resources/test_data.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_data1.arff" beforeDir="false" afterPath="$PROJECT_DIR$/resources/test_data1.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/weka.jar" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,86 +96,53 @@
     <favorites_list name="LinearPerceptron" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49110594">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/company/LinearPerceptron.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/company/WekaTools.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="848">
-                  <caret line="137" column="42" lean-forward="true" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
-                  <folding>
-                    <element signature="e#1302#1303#0" expanded="true" />
-                    <element signature="e#1339#1340#0" expanded="true" />
-                    <element signature="e#1466#1467#0" expanded="true" />
-                    <element signature="e#1512#1513#0" expanded="true" />
-                    <element signature="e#1607#1608#0" expanded="true" />
-                    <element signature="e#1642#1643#0" expanded="true" />
-                    <element signature="e#1576#1577#0" expanded="true" />
-                    <element signature="e#1622#1623#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/test_data.arff">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="112">
-                  <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/test_data1.arff">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="19" selection-start-column="19" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-70">
-                  <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="153" column="43" lean-forward="true" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LinearPerceptron.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3296">
+              <caret line="223" column="42" selection-start-line="223" selection-start-column="42" selection-end-line="223" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/WekaTools.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2480">
+              <caret line="179" column="5" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2720">
+              <caret line="187" selection-start-line="187" selection-end-line="187" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LinearPerceptronEnsemble.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="87" column="63" lean-forward="true" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>w</find>
       <find>w_delta</find>
       <find>n</find>
+      <find>,7.</find>
+      <find>0.596868,0.596868,0</find>
+      <find>format</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,22 +153,27 @@
       <list>
         <option value="$PROJECT_DIR$/src/test_data.arff" />
         <option value="$PROJECT_DIR$/src/test_data1.arff" />
+        <option value="$PROJECT_DIR$/resources/UCIContinuous/breast-tissue/breast-tissue.arff" />
         <option value="$PROJECT_DIR$/src/com/company/LinearPerceptron.java" />
         <option value="$PROJECT_DIR$/src/com/company/WekaTools.java" />
         <option value="$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java" />
+        <option value="$PROJECT_DIR$/src/com/company/LinearPerceptronEnsemble.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="1263" />
-    <option name="height" value="1039" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,26 +184,29 @@
             <path>
               <item name="LinearPerceptron" type="b2602c69:ProjectViewProjectNode" />
               <item name="LinearPerceptron" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinearPerceptron" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinearPerceptron" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="UCIContinuous" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LinearPerceptron" type="b2602c69:ProjectViewProjectNode" />
               <item name="LinearPerceptron" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../weka.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -186,7 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EnhancedLinearPerceptron">
+  <component name="RunManager" selected="Application.LinearPerceptronEnsemble">
     <configuration name="EnhancedLinearPerceptron" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.EnhancedLinearPerceptron" />
       <module name="LinearPerceptron" />
@@ -213,6 +257,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LinearPerceptronEnsemble" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.LinearPerceptronEnsemble" />
+      <module name="LinearPerceptron" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WekaTools" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.WekaTools" />
       <module name="LinearPerceptron" />
@@ -228,6 +285,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LinearPerceptronEnsemble" />
         <item itemvalue="Application.EnhancedLinearPerceptron" />
         <item itemvalue="Application.WekaTools" />
       </list>
@@ -249,7 +307,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.13221477" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.2080537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -258,8 +316,8 @@
       <window_info id="Favorites" order="6" sideWeight="0.50141644" side_tool="true" weight="0.24966443" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3186969" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.33286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.407932" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36685553" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -268,7 +326,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Maven" order="4" />
@@ -281,25 +339,25 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/WekaTools.java</url>
-          <line>100</line>
+          <url>file://$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java</url>
+          <line>150</line>
           <properties />
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/LinearPerceptronEnsemble.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/LinearPerceptronEnsemble.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Machine-Learning-Exercises/Labs/src/main/java/Lab2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
@@ -320,6 +378,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/blood/blood_TRAIN.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5527" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/SummaryInfo.csv" />
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/io/FilenameFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/test_data.arff">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -334,59 +405,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/blood/blood_TRAIN.arff">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5527" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/blood/blood_TEST.arff">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1543" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/SummaryInfo.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/blood/blood.arff">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11511" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/io/FilenameFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
+        <state relative-caret-position="32">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/steel-plates/steel-plates_TEST.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/blood/blood.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3297">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/blood/blood_TEST.arff">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/bank/bank.arff">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/breast-cancer-wisc-diag/breast-cancer-wisc-diag.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/breast-tissue/breast-tissue.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/cardiotocography-10clases/cardiotocography-10clases.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/conn-bench-sonar-mines-rocks/conn-bench-sonar-mines-rocks.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-864" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/conn-bench-vowel-deterding/conn-bench-vowel-deterding.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/ecoli/ecoli.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/glass/glass.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/hill-valley/hill-valley.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1488" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/image-segmentation/image-segmentation.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/ionosphere/ionosphere.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/iris/iris.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/libras/libras.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/oocytes_trisopterus_states_5b/oocytes_trisopterus_states_5b.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/oocytes_merluccius_nucleus_4d/oocytes_merluccius_nucleus_4d.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/optical/optical.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/ozone/ozone.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1008" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/page-blocks/page-blocks.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/parkinsons/parkinsons.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/planning/planning.arff">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/post-operative/post-operative.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/ringnorm/ringnorm.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/seeds/seeds.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/spambase/spambase.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/statlog-landsat/statlog-landsat.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/statlog-vehicle/statlog-vehicle.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/steel-plates/steel-plates.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/synthetic-control/synthetic-control.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/twonorm/twonorm.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/vertebral-column-3clases/vertebral-column-3clases.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/wall-following/wall-following.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/waveform-noise/waveform-noise.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/wine-quality-white/wine-quality-white.arff" />
+    <entry file="file://$PROJECT_DIR$/resources/UCIContinuous/yeast/yeast.arff" />
+    <entry file="jar://$PROJECT_DIR$/src/weka.jar!/weka/filters/unsupervised/attribute/RandomSubset.class" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LinearPerceptron.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        <state relative-caret-position="3296">
+          <caret line="223" column="42" selection-start-line="223" selection-start-column="42" selection-end-line="223" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/WekaTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="848">
-          <caret line="137" column="42" lean-forward="true" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
-          <folding>
-            <element signature="e#1302#1303#0" expanded="true" />
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1466#1467#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#1607#1608#0" expanded="true" />
-            <element signature="e#1642#1643#0" expanded="true" />
-            <element signature="e#1576#1577#0" expanded="true" />
-            <element signature="e#1622#1623#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2480">
+          <caret line="179" column="5" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/EnhancedLinearPerceptron.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="153" column="43" lean-forward="true" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
+        <state relative-caret-position="2720">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LinearPerceptronEnsemble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="87" column="63" lean-forward="true" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="80" />
         </state>
       </provider>
     </entry>
